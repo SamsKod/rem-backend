@@ -11,26 +11,26 @@ class ProfileList(generics.ListAPIView):
     List all profiles.
     No create view as profile creation is handled by django signals.
     """
-    queryset = Profile.objects.annotate(
-        notes_count=Count('owner__note', distinct=True),
-    ).order_by('-created_at')
-    serializer_class = ProfileSerializer
-    filter_backends = [
-        filters.OrderingFilter,
-        DjangoFilterBackend,
-    ]
+    # queryset = Profile.objects.annotate(
+    #     notes_count=Count('owner__note', distinct=True),
+    # ).order_by('-created_at')
+    # serializer_class = ProfileSerializer
+    # filter_backends = [
+    #     filters.OrderingFilter,
+    #     DjangoFilterBackend,
+    # ]
 
-    ordering_fields = [
-        'notes_count',
-    ]
+    # ordering_fields = [
+    #     'notes_count',
+    # ]
 
 
 class ProfileDetail(generics.RetrieveUpdateAPIView):
     """
     Retrieve or update a profile if you're the owner.
     """
-    permission_classes = [IsOwnerOrReadOnly]
-    queryset = Profile.objects.annotate(
-        notes_count=Count('owner__note', distinct=True),
-    ).order_by('-created_at')
-    serializer_class = ProfileSerializer    
+    # permission_classes = [IsOwnerOrReadOnly]
+    # queryset = Profile.objects.annotate(
+    #     notes_count=Count('owner__note', distinct=True),
+    # ).order_by('-created_at')
+    # serializer_class = ProfileSerializer    
