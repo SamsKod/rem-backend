@@ -2,9 +2,6 @@ from rest_framework import serializers
 from notes.models import Note
 from pins.models import Pin
 
-    """
-    Serializer for the Note model
-    """
 
 class NoteSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
