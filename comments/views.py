@@ -1,20 +1,25 @@
-from django.db import models
-from django.contrib.auth.models import User
-from notes.models import Note
+from rest_framework import generics, permissions
+from django_filters.rest_framework import DjangoFilterBackend
+from .models import Comment
+from .serializers import CommentSerializer
+from drf_api.permissions import IsOwnerOrReadOnly
 
 
-class Comment(models.Model):
-    """
-    Comment model, related to User and Post
-    """
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    note = models.ForeignKey(Note, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    content = models.TextField()
 
-    class Meta:
-        ordering = ['-created_at']
+class CommentList(generics.ListCreateAPIView):
+    serializer_class = CommentSerializer
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly
+    ]
+    queryset = Comment.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['note']
 
-    def __str__(self):
-        return self.content
+    def perform_create(self, serializer):
+    	serializer.save(owner=self.request.user)
+
+
+class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = CommentSerializer
+    permission_classes = [IsOwnerOrReadOnly]
+    queryset = Comment.objects.all()
