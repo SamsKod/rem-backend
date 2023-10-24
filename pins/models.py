@@ -3,6 +3,10 @@ from django.contrib.auth.models import User
 from notes.models import Note
 
 
+    """
+    Pin model, related to 'owner'
+    """
+
 class Pin(models.Model):
     
     owner = models.ForeignKey(User, on_delete=models.CASCADE)

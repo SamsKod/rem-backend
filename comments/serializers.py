@@ -3,6 +3,10 @@ from rest_framework import serializers
 from comments.models import Comment
 
 
+
+    """
+    Serializer for the Comment model
+    """
 class CommentSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
@@ -33,6 +37,5 @@ class CommentSerializer(serializers.ModelSerializer):
 class CommentDetailSerializer(CommentSerializer):
     """
     Serializer for the Comment model used in Detail view
-    Post is a read only field so that we dont have to set it on each update
     """
     note = serializers.ReadOnlyField(source='note.id')

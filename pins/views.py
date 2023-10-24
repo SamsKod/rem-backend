@@ -3,6 +3,9 @@ from .models import Pin
 from .serializers import PinSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
 
+    """
+    List pins or pin if logged in
+    """
 
 
 class PinList(generics.ListCreateAPIView):
@@ -14,6 +17,7 @@ class PinList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
     	serializer.save(owner=self.request.user)
+
 
 
 class PinDetail(generics.RetrieveDestroyAPIView):
