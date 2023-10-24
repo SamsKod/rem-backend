@@ -3,9 +3,6 @@ from .models import Pin
 from .serializers import PinSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
 
-    """
-    List pins or pin if logged in
-    """
 
 
 class PinList(generics.ListCreateAPIView):
