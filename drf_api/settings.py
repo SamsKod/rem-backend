@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'profiles',
     'notes',
     'pins',
+    'comments',
 ]
 
 SITE_ID = 1
