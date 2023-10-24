@@ -79,7 +79,8 @@ REST_FRAMEWORK = {
     'DATETIME_FORMAT': '%d %b %Y',
     }
 
-REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
+if 'DEV' not in os.environ:
+    REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
         'rest_framework.renderers.JSONRenderer',
     ]
 
