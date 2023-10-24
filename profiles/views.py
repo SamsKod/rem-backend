@@ -7,9 +7,7 @@ from .serializers import ProfileSerializer
 
 
 class ProfileList(generics.ListAPIView):
-    """
-    List all profiles.
-    """
+   
     queryset = Profile.objects.annotate(
         notes_count=Count('owner__note', distinct=True),
     ).order_by('-created_at')
@@ -25,9 +23,7 @@ class ProfileList(generics.ListAPIView):
 
 
 class ProfileDetail(generics.RetrieveUpdateAPIView):
-    """
-    View or update a profile if you're the owner.
-    """
+   
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Profile.objects.annotate(
         notes_count=Count('owner__note', distinct=True),

@@ -7,15 +7,12 @@ from .serializers import NoteSerializer
 
 
 class NotesList(generics.ListCreateAPIView):
-    """
-    List notes or create a note if logged in
-    The perform_create method associates the note with the logged in user.
-    """
+   
     queryset = Note.objects.annotate(
         comments_count=Count('comment', distinct=True),
         pins_count=Count('pins', distinct=True),
     ).order_by('-created_at')
-    serializer_class = NotesSerializer
+    serializer_class = NoteSerializer
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
@@ -43,12 +40,10 @@ class NotesList(generics.ListCreateAPIView):
 
 
 class NotesDetail(generics.RetrieveUpdateDestroyAPIView):
-    """
-    Retrieve a note and edit or delete it if you are owner.
-    """
+   
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Note.objects.annotate(
         comments_count=Count('comment', distinct=True),
         pins_count=Count('pins', distinct=True),
     ).order_by('-created_at')
-    serializer_class = NotesSerializer
+    serializer_class = NoteSerializer
