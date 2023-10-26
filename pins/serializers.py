@@ -7,7 +7,6 @@ class PinSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
 
 
-
     class Meta:
         model = Pin
         fields = ['id', 'owner', 'note', 'created_at']

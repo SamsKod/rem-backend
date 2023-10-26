@@ -5,7 +5,7 @@ from notes.models import Note
 
 class Comment(models.Model):
     """
-    Comment model, related to User and Post
+    Comment model, related to User and Note
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     note = models.ForeignKey(Note, on_delete=models.CASCADE)
