@@ -27,6 +27,6 @@ urlpatterns = [
     ),
     path('', include('profiles.urls')),
     path('', include('notes.urls')),
-    path('', include('pins.urls')),
     path('', include('comments.urls')),
+    path('', include('pins.urls')),
 ]

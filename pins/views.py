@@ -16,7 +16,6 @@ class PinList(generics.ListCreateAPIView):
     	serializer.save(owner=self.request.user)
 
 
-
 class PinDetail(generics.RetrieveDestroyAPIView):
     serializer_class = PinSerializer
     permission_classes = [IsOwnerOrReadOnly]
