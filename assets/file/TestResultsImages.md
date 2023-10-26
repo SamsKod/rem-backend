@@ -1,6 +1,6 @@
 # Test results images
 
-![Test_Api](assets/images/ProfileList.png)
+![Test_Api](../assets/images/ProfileList.png)
 
 ![Test_Api](images/NotesList.png)
 
