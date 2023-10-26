@@ -1,6 +1,6 @@
 # Test results images
 
-![Test_Api](ProfileList.png)
+![Test_Api](../ProfileList.png)
 
 ![Test_Api](images/NotesList.png)
 
