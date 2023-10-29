@@ -31,7 +31,6 @@ Append uri /pins/4| Fetch a pin by id| As expected| Pass
 
 
 # Bugs
- * 
 
 
 # Deployment
@@ -65,8 +64,6 @@ Steps on local:
 * In terminal/console:
   * Go to backend folder and run pip install -r requirements.txt
   * run python manage runserver
-
-
 
 
 # Credits
