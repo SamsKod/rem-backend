@@ -26,7 +26,7 @@ class NotesList(generics.ListCreateAPIView):
         'pins__owner__profile',
         'owner__profile',
     ]
-    
+
     ordering_fields = [
         'comments_count',
         'pins_count',

@@ -5,7 +5,6 @@ from .serializers import CommentSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
 
 
-
 class CommentList(generics.ListCreateAPIView):
     serializer_class = CommentSerializer
     permission_classes = [
@@ -16,7 +15,7 @@ class CommentList(generics.ListCreateAPIView):
     filterset_fields = ['note']
 
     def perform_create(self, serializer):
-    	serializer.save(owner=self.request.user)
+        serializer.save(owner=self.request.user)
 
 
 class CommentDetail(generics.RetrieveUpdateDestroyAPIView):

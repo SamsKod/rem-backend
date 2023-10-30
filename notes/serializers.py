@@ -12,11 +12,9 @@ class NotesSerializer(serializers.ModelSerializer):
     comments_count = serializers.ReadOnlyField()
     pins_count = serializers.ReadOnlyField()
 
-
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
-
 
     def get_pin_id(self, obj):
         user = self.context['request'].user
@@ -32,5 +30,5 @@ class NotesSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
-            'title', 'content', 'code', 'pin_id', 'comments_count','pins_count',
+            'title', 'content', 'code', 'pin_id', 'comments_count', 'pins_count',
         ]

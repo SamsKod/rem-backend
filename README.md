@@ -27,11 +27,12 @@ Append uri /pins| Fetch pins list | As expected| Pass
 Append uri /pins/4| Fetch a pin by id| As expected| Pass
 
 
-[Test_Api](assets/file/TestResultsImages.md)
+[Test_Api](assets/file/TestResultsImages.md) More images.
 
 
 # Bugs
 
+No bugs found.
 
 # Deployment
 The Django project Remember-backend is deployed on Heroku cloud service from Github repository rem-backend https://github.com/SamsKod/rem-backend/. A Postgres database on ElephantSQL cloud service is used and media files is handled by cloud service Cloudinary.

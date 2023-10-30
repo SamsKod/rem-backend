@@ -4,7 +4,6 @@ from .serializers import PinSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
 
 
-
 class PinList(generics.ListCreateAPIView):
     serializer_class = PinSerializer
     permission_classes = [
@@ -13,7 +12,7 @@ class PinList(generics.ListCreateAPIView):
     queryset = Pin.objects.all()
 
     def perform_create(self, serializer):
-    	serializer.save(owner=self.request.user)
+        serializer.save(owner=self.request.user)
 
 
 class PinDetail(generics.RetrieveDestroyAPIView):
